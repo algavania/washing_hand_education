@@ -1,5 +1,10 @@
 {
   "goodMorning": "Hai! Selamat Pagi",
   "washHands": "Ayo cuci tangan",
-  "tutorial1": "Nyalakan keran air di depan kamu"
+  "tutorial1": "Basahi tangan dengan air mengalir",
+  "tutorial2": "Ambil sabun dan gosokkan di seluruh bagian tangan, termasuk punggung tangan, sela-sela jari, kuku, dan pergelangan tangan selama 20 detik",
+  "tutorial3": "Bilas tangan hingga bersih dari sabun",
+  "tutorial4": "Keringkan tangan dengan handuk bersih atau tisu",
+  "sayHello": "Katakan Halo!",
+  "completedText": "Hore! Tangan kamu sudah bersih"
 }

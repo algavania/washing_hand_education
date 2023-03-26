@@ -58,6 +58,15 @@ class AppRouter extends _i2.RootStackRouter {
         barrierDismissible: false,
       );
     },
+    CompletedRoute.name: (routeData) {
+      return _i2.CustomPage<dynamic>(
+        routeData: routeData,
+        child: const _i1.CompletedPage(),
+        transitionsBuilder: _i2.TransitionsBuilders.fadeIn,
+        opaque: true,
+        barrierDismissible: false,
+      );
+    },
   };
 
   @override
@@ -83,6 +92,10 @@ class AppRouter extends _i2.RootStackRouter {
         _i2.RouteConfig(
           TutorialRoute.name,
           path: '/tutorial',
+        ),
+        _i2.RouteConfig(
+          CompletedRoute.name,
+          path: '/completed',
         ),
       ];
 }
@@ -133,4 +146,16 @@ class TutorialRoute extends _i2.PageRouteInfo<void> {
         );
 
   static const String name = 'TutorialRoute';
+}
+
+/// generated route for
+/// [_i1.CompletedPage]
+class CompletedRoute extends _i2.PageRouteInfo<void> {
+  const CompletedRoute()
+      : super(
+          CompletedRoute.name,
+          path: '/completed',
+        );
+
+  static const String name = 'CompletedRoute';
 }

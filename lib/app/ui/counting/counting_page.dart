@@ -45,6 +45,7 @@ class _CountingPageState extends State<CountingPage> {
       },
     );
   }
+
   @override
   void dispose() {
     _timer.cancel();

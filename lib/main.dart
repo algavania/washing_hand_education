@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:loader_overlay/loader_overlay.dart';
@@ -6,9 +7,13 @@ import 'package:sizer/sizer.dart';
 
 import 'app/common/app_theme_data.dart';
 import 'app/common/color_values.dart';
+import 'app/repositories/repositories.dart';
 import 'app/routes/router.gr.dart';
+import 'services/shared_preferences_service.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await SharedPreferencesService.init();
   runApp(const MyApp());
 }
 
@@ -33,13 +38,20 @@ class _MyAppState extends State<MyApp> {
               color: ColorValues.primaryBlue,
               size: 50.0,
             )),
-        child: MaterialApp.router(
-          theme: AppThemeData.getTheme(context),
-          routerDelegate: _appRouter.delegate(),
-          routeInformationParser: _appRouter.defaultRouteParser(),
-          localizationsDelegates: AppLocalizations.localizationsDelegates,
-          supportedLocales: AppLocalizations.supportedLocales,
-          debugShowCheckedModeBanner: false,
+        child: MultiRepositoryProvider(
+          providers: [
+            RepositoryProvider(
+              create: (context) => HandwashRepository(),
+            ),
+          ],
+          child: MaterialApp.router(
+            theme: AppThemeData.getTheme(context),
+            routerDelegate: _appRouter.delegate(),
+            routeInformationParser: _appRouter.defaultRouteParser(),
+            localizationsDelegates: AppLocalizations.localizationsDelegates,
+            supportedLocales: AppLocalizations.supportedLocales,
+            debugShowCheckedModeBanner: false,
+          ),
         ),
       );
     });

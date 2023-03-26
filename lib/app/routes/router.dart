@@ -34,6 +34,10 @@ import '../ui/screens.dart';
         page: TutorialPage,
         path: '/tutorial',
         transitionsBuilder: TransitionsBuilders.fadeIn),
+    CustomRoute(
+        page: CompletedPage,
+        path: '/completed',
+        transitionsBuilder: TransitionsBuilders.fadeIn),
   ],
 )
 class $AppRouter {}
