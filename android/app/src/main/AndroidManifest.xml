@@ -11,7 +11,7 @@
     </queries>
 
     <application
-        android:label="washing_hand_education"
+        android:label="Washing Hand Education"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity
