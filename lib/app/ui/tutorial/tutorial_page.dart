@@ -27,15 +27,15 @@ class _TutorialPageState extends State<TutorialPage> {
   @override
   Widget build(BuildContext context) {
     List<StepModel> steps = [
-      StepModel(text: AppLocalizations.of(context).tutorial1, state: true),
+      StepModel(text: AppLocalizations.of(context).tutorial1, state: false),
       StepModel(
           text: AppLocalizations.of(context).tutorial2,
-          state: false,
+          state: true,
           duration: 20,
           fontSize: 20.sp,
       ),
-      StepModel(text: AppLocalizations.of(context).tutorial3, state: true),
-      StepModel(text: AppLocalizations.of(context).tutorial4, state: false),
+      StepModel(text: AppLocalizations.of(context).tutorial3, state: false),
+      StepModel(text: AppLocalizations.of(context).tutorial4, state: true),
     ];
 
     return Scaffold(
@@ -63,6 +63,7 @@ class _TutorialPageState extends State<TutorialPage> {
               debugPrint('index $_index');
               if (_index < steps.length) {
                 Future.delayed(Duration(seconds: steps[_index].duration), () {
+                  debugPrint('step name ${steps[_index].text}, state ${steps[_index].state}');
                   BlocProvider.of<HandwashBloc>(context).add(UpdateHandwashStateEvent(steps[_index].state));
                 });
               }
